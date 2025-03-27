@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 27 mars 2025 à 12:51
+-- Généré le : jeu. 27 mars 2025 à 13:22
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -18,8 +18,57 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `mangas`
+-- Base de données : `bdd-mangas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `auteurs`
+--
+
+CREATE TABLE `auteurs` (
+  `id` int(255) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `naissance` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `auteurs`
+--
+
+INSERT INTO `auteurs` (`id`, `nom`, `naissance`) VALUES
+(1, 'Miura, Kentarou', 1966),
+(2, 'Araki, Hirohiko', 1960),
+(3, 'Inoue, Takehiko', 1967),
+(6, 'Oda, Eiichiro', 1975),
+(7, 'Urasawa, Naoki', 1960);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `mangas`
+--
+
+CREATE TABLE `mangas` (
+  `id` int(255) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `publication` int(255) NOT NULL,
+  `note` int(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `id_auteur` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `mangas`
+--
+
+INSERT INTO `mangas` (`id`, `titre`, `publication`, `note`, `description`, `id_auteur`) VALUES
+(1, 'Berserk', 1989, 947, 'Guts, a former mercenary now known as the Black Swordsman, is out for revenge.', 1),
+(2, 'JoJo no Kimyou na Bouken Part 7: Steel Ball Run', 2011, 932, 'In the American Old West, the world\'s greatest race is about to begin.', 2),
+(3, 'Vagabond', 1998, 927, 'In 16th-century Japan, Shinmen Takezou is a wild, rough young man in both his appearance and his actions.', 3),
+(4, 'One Piece', 1997, 922, 'Gol D. Roger, a man referred to as the King of the Pirates, is set to be executed by the World Government.', 6),
+(5, 'Monster', 1994, 919, 'Kenzou Tenma, a renowned Japanese neurosurgeon working in post-war Germany, faces a difficult choice.', 7);
 
 -- --------------------------------------------------------
 
@@ -55,6 +104,18 @@ INSERT INTO `personnages` (`id`, `nom`, `description`, `id_manga`) VALUES
 --
 
 --
+-- Index pour la table `auteurs`
+--
+ALTER TABLE `auteurs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `mangas`
+--
+ALTER TABLE `mangas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `personnages`
 --
 ALTER TABLE `personnages`
@@ -63,6 +124,18 @@ ALTER TABLE `personnages`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `auteurs`
+--
+ALTER TABLE `auteurs`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT pour la table `mangas`
+--
+ALTER TABLE `mangas`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `personnages`
