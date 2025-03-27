@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 27 mars 2025 à 13:22
+-- Généré le : jeu. 27 mars 2025 à 13:52
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.3.1
 
@@ -55,7 +55,7 @@ CREATE TABLE `mangas` (
   `titre` varchar(255) NOT NULL,
   `publication` int(255) NOT NULL,
   `note` int(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `descr` varchar(255) NOT NULL,
   `id_auteur` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -63,7 +63,7 @@ CREATE TABLE `mangas` (
 -- Déchargement des données de la table `mangas`
 --
 
-INSERT INTO `mangas` (`id`, `titre`, `publication`, `note`, `description`, `id_auteur`) VALUES
+INSERT INTO `mangas` (`id`, `titre`, `publication`, `note`, `descr`, `id_auteur`) VALUES
 (1, 'Berserk', 1989, 947, 'Guts, a former mercenary now known as the Black Swordsman, is out for revenge.', 1),
 (2, 'JoJo no Kimyou na Bouken Part 7: Steel Ball Run', 2011, 932, 'In the American Old West, the world\'s greatest race is about to begin.', 2),
 (3, 'Vagabond', 1998, 927, 'In 16th-century Japan, Shinmen Takezou is a wild, rough young man in both his appearance and his actions.', 3),
@@ -79,7 +79,7 @@ INSERT INTO `mangas` (`id`, `titre`, `publication`, `note`, `description`, `id_a
 CREATE TABLE `personnages` (
   `id` int(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `descr` varchar(255) NOT NULL,
   `id_manga` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -87,7 +87,7 @@ CREATE TABLE `personnages` (
 -- Déchargement des données de la table `personnages`
 --
 
-INSERT INTO `personnages` (`id`, `nom`, `description`, `id_manga`) VALUES
+INSERT INTO `personnages` (`id`, `nom`, `descr`, `id_manga`) VALUES
 (1, 'Guts', 'Guts is the protagonist of the story.', 1),
 (2, 'Griffith', 'Griffith, is the charismatic leader and founder of the Band of The Hawk.', 1),
 (3, 'Gyro Zeppeli', 'Born Julius Caesar Zeppeli, but more commonly referred to as \"Gyro Zeppeli.\"', 2),
